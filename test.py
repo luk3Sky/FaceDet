@@ -10,14 +10,14 @@ def createFolder(directory):
         print('Error: Creating directory. ' + directory)
 
 
-face_detection = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+face_detection = cv2.CascadeClassifier(r'haarcascade_frontalface_default.xml')
 cam = cv2.VideoCapture(0)
 
 no_of_samples = 0
-
+# static user_name =  # type: str
 while True:
     try:
-        user_name = str(input("Enter your name:\n"))
+        user_name = raw_input("Enter your name:\n")
         print("Hi ", user_name, "\n")
         break
     except ValueError:
@@ -41,12 +41,12 @@ while True:
         cv2.rectangle(image, (x_coordinates, y_coordinates), (x_coordinates + width, y_coordinates + height),
                       (125, 125, 125), 2)
         no_of_samples += 1
-        cv2.waitKey(100)
+        cv2.waitKey(10)
     cv2.imshow("Face", image)
 
     # Breakpoint
-    if (cv2.waitKey(1) == ord('q')) and (no_of_samples >= 10) :
-        print("Database update success! {} inputs\nExit".format(no_of_samples))
+    if (cv2.waitKey(100) == ord('q')) and (no_of_samples >= 10) :
+        # print("Database update success! {} inputs\nExit".format(no_of_samples))
         break
 
 cam.release()

@@ -1,9 +1,6 @@
-import numpy
-import cv2
-from PIL import Image
 import os
+import cv2
+import numpy
+# from PIL import Image
 
-recognizer = 
-
-def
-
+rec = cv2.createLBPHFaceRecognizer()
