@@ -11,14 +11,13 @@ def createFolder(directory):
 
 
 face_detection = cv2.CascadeClassifier(r'haarcascade_frontalface_default.xml')
-cam = cv2.VideoCapture(0)
 
 no_of_samples = 0
 # static user_name =  # type: str
 while True:
     try:
         user_name = raw_input("Enter your name:\n")
-        print("Hi ", user_name, "\n")
+        print("Hi "+user_name+ "!")
         break
     except ValueError:
         print("Error: Please enter a name\n")
@@ -26,6 +25,7 @@ while True:
         print("Welcome to face detection system")
 
 
+cam = cv2.VideoCapture(0)
 while True:
     ret, image = cam.read()
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -34,7 +34,8 @@ while True:
     # For the detected faces
     for (x_coordinates, y_coordinates, width, height) in faces:
         print("Face Detected!")
-        user_folder = "User - " + user_name
+        user_folder = "Database\User - " + user_name
+        createFolder("Database")
         createFolder(user_folder)
         temp_file_name = user_folder+"/User - " + user_name + "_" + str(no_of_samples)+".jpg"
         cv2.imwrite(temp_file_name, gray)
