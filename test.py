@@ -13,14 +13,15 @@ def createFolder(directory):
 face_detection = cv2.CascadeClassifier(r'haarcascade_frontalface_default.xml')
 
 no_of_samples = 0
-# static user_name =  # type: str
+user_name = raw_input("Enter your name :")
+
 while True:
     try:
-        user_name = raw_input("Enter your name:\n")
         print("Hi "+user_name+ "!")
+        user_Id = raw_input("Enter your ID :")
         break
     except ValueError:
-        print("Error: Please enter a name\n")
+        print("Error: Please enter a valid ID\n")
     finally:
         print("Welcome to face detection system")
 
@@ -34,11 +35,11 @@ while True:
     # For the detected faces
     for (x_coordinates, y_coordinates, width, height) in faces:
         print("Face Detected!")
-        user_folder = "Database\User - " + user_name
+        user_folder = "Database\User - " + user_name + " - "+ str(user_Id)
         createFolder("Database")
         createFolder(user_folder)
-        temp_file_name = user_folder+"/User - " + user_name + "_" + str(no_of_samples)+".jpg"
-        cv2.imwrite(temp_file_name, gray)
+        temp_file_name = user_folder+"/User - " + user_name + " - "+ str(user_Id) + "_" + str(no_of_samples)+".jpg"
+        cv2.imwrite(temp_file_name, gray[y_coordinates:y_coordinates+height,x_coordinates:x_coordinates+width])
         cv2.rectangle(image, (x_coordinates, y_coordinates), (x_coordinates + width, y_coordinates + height),
                       (125, 125, 125), 2)
         no_of_samples += 1
