@@ -14,17 +14,15 @@ face_detection = cv2.CascadeClassifier(r'haarcascade_frontalface_default.xml')
 
 no_of_samples = 0
 user_name = raw_input("Enter your name :")
+print("Welcome to face detection system")
 
 while True:
     try:
         print("Hi "+user_name+ "!")
-        user_Id = raw_input("Enter your ID :")
+        user_Id = int(raw_input("Enter your ID :"))
         break
     except ValueError:
         print("Error: Please enter a valid ID\n")
-    finally:
-        print("Welcome to face detection system")
-
 
 cam = cv2.VideoCapture(0)
 while True:
@@ -43,7 +41,7 @@ while True:
         cv2.rectangle(image, (x_coordinates, y_coordinates), (x_coordinates + width, y_coordinates + height),
                       (125, 125, 125), 2)
         no_of_samples += 1
-        cv2.waitKey(10)
+        cv2.waitKey(1)
     cv2.imshow("Face", image)
 
     # Breakpoint
