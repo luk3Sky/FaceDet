@@ -12,7 +12,7 @@ except:
     exit()
 
 id = 0
-font = cv2.cv.InitFont(cv2.cv.CV_FONT_HERSHEY_COMPLEX_SMALL, 5, 1, 0, 4)
+font = cv2.cv.InitFont(cv2.cv.CV_FONT_HERSHEY_COMPLEX_SMALL, 2, 1, 1, 1)
 print(font)
 while True:
     ret, image = cam.read()
@@ -27,7 +27,9 @@ while True:
         if id == 1:
             id = "Ganindu"
         elif id == 2:
-            id = "Shalini"
+            id = "No Name"
+        else:
+            id = "New"
         cv2.cv.PutText(cv2.cv.fromarray(image), str(id), (x_coordinates, y_coordinates+height), font, 255)
         print("Face Detected!")
     cv2.imshow("Face", image)

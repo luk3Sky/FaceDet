@@ -39,7 +39,7 @@ def getUserID_Username_ImageFace(database):
         print(userId)
         userIds.append(int(userId))
         userNames.append(userName)
-        cv2.imshow("Training", numpy_face)
+        # cv2.imshow("Training", numpy_face)
         cv2.waitKey(10)
 
     return userIds, userNames, faces
