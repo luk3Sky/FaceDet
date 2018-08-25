@@ -1,3 +1,9 @@
 *.idea
+<<<<<<< HEAD
 *.jpeg
 *.jpg
+=======
+.jpeg
+.jpg
+*.xml
+>>>>>>> ca68afdc3fe71996e2a0cdebf77a71044eeb2637
