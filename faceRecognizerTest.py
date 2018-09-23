@@ -26,10 +26,12 @@ while True:
         id, conf = recognizer.predict(gray[y_coordinates:y_coordinates+height,x_coordinates:x_coordinates+width])
         if id == 1:
             id = "Ganindu"
-        elif id == 2:
-            id = "No Name"
-        else:
-            id = "New"
+        elif id == 3:
+            id = "Shalini"
+        elif id == 100:
+            id = "Yasas"
+        # else:
+        #     id = "New"
         cv2.cv.PutText(cv2.cv.fromarray(image), str(id), (x_coordinates, y_coordinates+height), font, 255)
         print("Face Detected!")
     cv2.imshow("Face", image)

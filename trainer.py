@@ -17,7 +17,7 @@ def createFolder(directory):
 # returns the image file paths relative to the current directory
 def getImageFilePaths(path):
     database = []
-    userDirectory = [os.path.join(path,f) for f in os.listdir(path)]
+    userDirectory = [os.path.join(path, f) for f in os.listdir(path)]
     # print(userDirectory)
     for user in userDirectory:
         imageDirectory = [os.path.join(user, i) for i in os.listdir(user)]
